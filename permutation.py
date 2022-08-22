@@ -1,3 +1,6 @@
+###################
+#Riley Underwood 
+###################
 
 import random 
 from itertools import permutations
@@ -30,7 +33,6 @@ class Permutations():
     permutations = [] 
     correct_permutation = None
 
-
     def __init__(self, correct_permutation):
         self.correct_permutation = correct_permutation
         self.create_alternative_permutations()
@@ -38,26 +40,17 @@ class Permutations():
 
     # Generate the Alternative permutations
     def create_alternative_permutations(self): 
-        
-        print("Creating Permutations") 
-        while len(self.permutations) < NUMBER_OF_PERMUATIONS:
-
-            
+        while len(self.permutations) < NUMBER_OF_PERMUATIONS:   
             new_permutation = Permutation(OPERATORS[random.randrange(4)],OPERATORS[random.randrange(4)])
             #Check if this is a new permutation
             if not self.permuatation_not_exist(new_permutation):
-                print(new_permutation.get_a_operator() + "  " +new_permutation.get_b_operator())
-            
                 self.permutations.append(new_permutation)
-
-        print("Finished Creating Permutations")
 
 
     
     ##The new permutation is checked against the correct and the existing ones that were created 
         
     def permuatation_not_exist(self, new_permutation):
-        
         exists=False 
         for permutation in self.permutations:
             if (permutation.get_a_operator() == new_permutation.get_a_operator()) and (permutation.get_b_operator() == new_permutation.get_b_operator()):
